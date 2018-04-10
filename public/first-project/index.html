@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>First Project</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <h2>steps</h2>
+    <div id="big-box">
+    </div>
+    <div class="small-box">
+    </div>
+    <div class="small-box">
+    </div>
+    <div class="small-box">
+    </div>
+    <ol>
+      <li>create an index.gtml page</li>
+      <li>link it to a style.css page</li>
+      <li>link it to a script.js page</li>
+    </ol>
+    <script>
+      alert('there is some js running here');
+    </script>
+    <script>
+      console.log('there is some js running here');
+    </script>
+    <script>
+    // declare my variables
+    var a = "web";
+    var b = "site";
+    var c = 24;
+    var d = 7;
+    // perform some operations and store them in new variables
+    var firstResult = a + b;
+    var secondResult = c + d;
+    var thirdResult = b + d;
+    var fourthResult = c/d;
+    var fifthResult = c + "/" + d;
+    // log out all the results
+    console.log(firstResult)
+    console.log(secondResult)
+    console.log(thirdResult)
+    console.log(fourthResult)
+    console.log(fifthResult)
+    var bigBox = document.querySelector('#big-box')
+    bigBox.innerHTML = "NEW TEXT HERE";
+    </script>
+</body>
