@@ -26,16 +26,15 @@ router.get('/slack-history', function(req, res, next){
     }
   ]
   var message = "Ultimately, we'll put our Slack App here. The variable we're passing in here could contain anything."
-
   res.render('slack_history', {title: 'Slack History', message: message, data: sampleData})
-  })
-  router.post('/simple-slash', function(req, res, next) {
-    console.log("got a request:");
-    console.log(JSON.stringify(req.body, null, 4));
+    })
+
+router.post('/simple-slash', function(req, res, next) {
+  console.log("got a request:");
+  console.log(JSON.stringify(req.body, null, 4));
     res.send('just received a message. will do more soon')
   })
-
-  var thePayload = {
+var thePayload = {
   text: "received your message",
   attachments: [
     {
@@ -43,5 +42,5 @@ router.get('/slack-history', function(req, res, next){
       image_url: "https://gph.is/1GrHtOZ"
     }
   ]
-}
+  }
 res.json(thePayload);
