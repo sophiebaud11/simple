@@ -9,17 +9,6 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-var thePayload = {
-  text: "received your message",
-  attachments: [
-    {
-      title: "just a simple gif",
-      image_url: "https://gph.is/1GrHtOZ"
-    }
-  ]
-};
-res.json(thePayload);
-
 
 require('dotenv').config();
 
