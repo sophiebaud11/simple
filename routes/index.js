@@ -8,7 +8,7 @@ var thePayload = {
       image_url: "https://gph.is/1GrHtOZ"
     }
   ]
-};
+}
 res.json(thePayload);
 
 /* GET home page. */
