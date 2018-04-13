@@ -1,15 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var thePayload = {
-  text: "received your message",
-  attachments: [
-    {
-      title: "just a simple gif",
-      image_url: "https://gph.is/1GrHtOZ"
-    }
-  ]
-}
-res.json(thePayload);
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {res.render('index', { title: 'Simple Slack App' });
@@ -42,3 +33,13 @@ router.post('/simple-slash', function(req, res, next) {
   console.log(JSON.stringify(req.body, null, 4));
   res.send('just received a message. will do more soon')
 });
+var thePayload = {
+  text: "received your message",
+  attachments: [
+    {
+      title: "just a simple gif",
+      image_url: "https://gph.is/1GrHtOZ"
+    }
+  ]
+}
+res.json(thePayload);
