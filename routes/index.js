@@ -43,3 +43,7 @@ router.post('/simple-slash', function(req, res, next) {
   res.json(thePayload);
   // res.send('just received a message from ' + req.body.user_name + ' will do more soon')
 });
+router.post('/slack-interactions', function(req, res, next) {
+  console.log(JSON.stringify(req.body, null, 4))
+  res.send('got your message');
+});
