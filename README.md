@@ -402,8 +402,13 @@ We aren't going to cover how to manage OAuth verifications in this tutorial (you
 ## Event Subscriptions
 
 1. enable them
-2. URL: `https://rocky-earth-53316.herokuapp.com/slack-events`
-3. select a bunch
+2. URL: `https://rocky-earth-53316.herokuapp.com/slack-events` (use your own Heroku link, with /slack-events added on the end). Use this code to verify the link!
+`router.post('/slack-events', function(req, res, next) {
+  console.log(JSON.stringify(req.body, null, 4))
+  res.send(req.body.challenge);
+});`
+3. Add some workspace events! (Good options include reactions_added and message.channels)
+4. Check if these messages are coming up in your Heroku log! (access this with heroku logs --tail)
 
 ## Add a Bot user
 
