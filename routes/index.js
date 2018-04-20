@@ -34,7 +34,7 @@ router.post('/simple-slash', function(req, res, next) {
     attachments: [
       {
         title: "just a simple gif",
-        image_url: "https://gph.is/1GrHtOZ"
+        image_url: "https://media.giphy.com/media/UTT6QbG4EPOIE/giphy.gif"
       }
     ]
   }
