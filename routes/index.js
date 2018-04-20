@@ -50,5 +50,5 @@ router.post('/slack-interactions', function(req, res, next) {
 
 router.post('/slack-events', function(req, res, next) {
   console.log(JSON.stringify(req.body, null, 4))
-  res.send('got your message');
+  res.send(req.body.challenge);
 });
