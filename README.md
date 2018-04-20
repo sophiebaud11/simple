@@ -391,11 +391,11 @@ Heroku already has [an amazing tutorial for developers wanting to deploy node.js
 We aren't going to cover how to manage OAuth verifications in this tutorial (you will have master OAuth if you want to distribute your Slack App to the broader public).  But we need to dive into the elements we'll find on the "OAuth and Permissions" page (accessible via sidebar link). This is where we'll specify which API methods we'll enable for our app. You might think that you may as well enable everything and then figure out what to use later on. And you could do this. But it is generally safer to limit your app's permissions to only the methods you really really need.
 1. The first thing we'll do on this page is copy the OAuth Access Token, and we'll save this to our `.env` file as as the `SLACK_TOKEN`.
 2. Next, we'll scroll down to the "Scopes" section, and we'll select a number of scopes to add:
-    1. `channels.history`
-    2. `channels.read`
-    3. `channels.write`
-    4. `reactions.read`
-    5. `users.read`
+    1. `channels:history`
+    2. `channels:read`
+    3. `channels:write`
+    4. `reactions:read`
+    5. `users:read`
     Add these one by one, click save, and then click to reinstall the app (when it asks you again for a specific channel, this is just for the webhook you installed--go ahead and choose the channel you want webhook messages to go to again--you will still be able to send messages to other channels using the Web API).
 3. If you are in a hurry to see what the methods that use these scopes can do for you, go ahead and [create a legacy token](https://api.slack.com/custom-integrations/legacy-tokens) and test out the [channels.list](https://api.slack.com/methods/channels.list/test) method (or any others that match scopes you've added). You can generate the exact same JSON we'll later generate in our app through the Slack API website.  And you can even get a URL that will send back your raw JSON (though Slack suggests that you move away from using these tokens in favor of the OAuth tokens). In this tutorial we are going to hold off on using these methods, but we'll get to them soon.
 
