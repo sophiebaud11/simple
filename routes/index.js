@@ -29,7 +29,17 @@ router.get('/slack-history', function(req, res, next){
   res.render('slack_history', {title: 'Slack History', message: message, data: sampleData})
 });
 router.post('/simple-slash', function(req, res, next) {
+  var thePayload = {
+    text: "received your message",
+    attachments: [
+      {
+        title: "just a simple gif",
+        image_url: "https://gph.is/1GrHtOZ"
+      }
+    ]
+  }
   console.log("got a request:");
   console.log(JSON.stringify(req.body, null, 4));
-  res.send('just received a message from ' + req.body.user_name + ' will do more soon')
+  res.json(thePayload);
+  // res.send('just received a message from ' + req.body.user_name + ' will do more soon')
 });
