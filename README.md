@@ -20,13 +20,13 @@ This tutorial is really going to build from the ground up, presuming no knowledg
 Here are the steps for creating the blank express app template (and connecting it to [github.com](http://www.github.com)).
 
 1. create an empty repository on [github.com](http://www.github.com).  You'll need a github account for this.  As you create the repository, you'll be prompted with some settings options: you want to select "node.js" for the `.gitignore` file type, "MIT" for the license type, and you'll want to check the box for “initialize with a README.” ![github-repo-settings](https://raw.githubusercontent.com/learninglab-dev/simple_slack/master/public/images/github-repo-settings.png)   
-2. clone to this repository to your computer by opening up Terminal, navigating to your Development folder (`cd ~/Development` on our machines) and pasting in the `git clone [REPO_NAME]` text that you copy from the repository page. Hit enter and should be all set. ![clone-repo](https://raw.githubusercontent.com/learninglab-dev/simple_slack/master/public/images/clone-repo.png)
+2. clone to this repository to your computer by opening up Terminal, navigating to your Development folder (`cd ~/Development` on our machines) and pasting in the `git clone [REPO_NAME]` text that you copy from the repository page. [REPO_NAME] is the link found under the Clone or Download button, and you don't need brackets in the actual code. Hit enter and should be all set. ![clone-repo](https://raw.githubusercontent.com/learninglab-dev/simple_slack/master/public/images/clone-repo.png)
 3. if you now type `ls` (for "list"), you should see a folder with the same name as your repository—this is where you are going to put your app
-4. change directories into your app's root folder by typing `cd [MY_APP]`
-5. use express-generator to create an empty express app template by typing `express --view=ejs` (go ahead and enter `ls` to take a look at what has shown up after this command)
+4. change directories into your app's root folder by typing `cd [MY_APP]` ([MY_APP] is the name of your repository).
+5. Install express-generator (`npm install --global experss-generator`), and use express-generator to create an empty express app template by typing `express --view=ejs` (go ahead and enter `ls` to take a look at what has shown up after this command)
 6. install node modules with `npm install`
 7. at this point you should be able to type `npm start` and then open the app up in your web browser at [localhost:3000](http://localhost:3000).
-8. now that we have an blank template, we will want to begin adding some code, so go back to Terminal (and still inside your app's root folder), type `atom .` to open up the contents of the current directory in Atom (your text editor).
+8. now that we have an blank template, we will want to begin adding some code, so go back to Terminal (and still inside your app's root folder), type control c and then `atom .` to open up the contents of the current directory in Atom (your text editor).
 9. you’ll see a bunch of folders and files:
 	- `bin` is a folder with an important file that actually starts up your app, but we won’t be touching it
 	- `public` is the folder that holds all the files your server will serve up for visitors to your site.  All of your ’static’ html pages can go here. More on how to do this in a bit.
@@ -42,7 +42,7 @@ Here are the steps for creating the blank express app template (and connecting i
 
 To start out, let’s add a basic html page to our public folder and get it connected to some CSS styles (and in the next step, to a JS script).  If you are just using express to start a development server while you explore a client-side js library like d3, for instance, this may be as far as you need to go in this tutorial.  If you already know all about HTML and CSS you can skip this one.
 
-1. In Atom, right-click on the `public` and add a folder for your static page project, in this repo we’ll call ours `first-project`.  Inside this folder we’re going to create a file and save it as `index.html`.
+1. In Atom, right-click on the `public` and add a folder for your static page project, in this repo we’ll call ours `first-project`.  Inside this folder we’re going to create a file and save it as `index.html`; do this by right-clicking on `first-project` and then clicking create file.
 2. If you already know a bunch about HTML, you can get as elaborate as you’d like at this stage, but you are starting out, copy and paste in the following code:
    ```html
     <body>
@@ -55,7 +55,7 @@ To start out, let’s add a basic html page to our public folder and get it conn
     </body>
    ```  
     The `<` and `>` characters define HTML tags, in this case tags for the `body` (which contains the HTML that browser will display), `h2` for the heading, `ol` for ordered list, and `li` for list elements.  Note the way the opening and closing tags for the ordered list (`<ol>` and `</ol>`) bracket the list elements, and the way the body tags bracket everything.  This nesting structure is a big part of what you'll encounter (and become comfortable with) as you learn HTML.
-3. if you now go to [localhost:3000/first-project](http://localhost:3000/first-project) in your web browser you should see the page.  For fun, change the `<ol>` and `</ol>` tags (the opening and closing ordered list tags) to `<ul>` and `</ul>` (to change it to an unordered list).  Play around adding other stuff and other tags, including h1, h2, h3, etc for different headings, p for paragraphs, etc.  Don’t forget both opening and closing tags.  For a detailed intro go [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals), for a complete reference go [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+3. Use command S to save the code from step 2 and enter npm start. Now go to [localhost:3000/first-project](http://localhost:3000/first-project) in your web browser and you should see the page.  For fun, change the `<ol>` and `</ol>` tags (the opening and closing ordered list tags) to `<ul>` and `</ul>` (to change it to an unordered list).  Play around adding other stuff and other tags, including h1, h2, h3, etc for different headings, p for paragraphs, etc.  Don’t forget both opening and closing tags.  For a detailed intro go [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals), for a complete reference go [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
 4. you can add as many pages to this folder as you want, but, unlike `index.html` which has a special status, you’d need to type in the complete path to the document if you want your browser to see it.  For instance, if I put a file called `my-gifs.html` in the `first-project` folder, I would access it at `localhost:3000/first-project/my-gifs.html`.  For `index.html` files, you only need to type in the path to the containing folder (`localhost:3000/first-project`).
 5. In order to style the page, we are going to create a `style.css` file (right in the current `first-project` folder).  So right click on your `first-project` folder and create a new file that you save as `style.css`.
 6. to connect this file to your html page, you'll need to reopen the `index.html` file.  And when working with both a css file and an html file in Atom, it's nice to be able to see both at once.  So find your html file in the project hierarchy on the left, right-click on it, and select "split right." You should now see your two files side by side.
@@ -144,7 +144,7 @@ We're going to be running lots of js code on the server side, but we will also b
     </script>
     ```
     You should now see an alert when you reload the page.  
-2. And we _could_ use these alerts to give us info on what our code is doing, but this would get annoying if we had to add a bunch of them.  So, instead, we are going to "log" info out to the "console."  When we use the `console.log` function in our server-side code, we'll see the output in our mac's Terminal application, right where we type `npm run devstart`.  Things are slightly different for our client-side code.  For that, we'll need to open up the Developer view in our browser by hitting command + option + "i" . . . and then making sure we've selected "console" from the menu rather than "elements" or something else.
+2. And we _could_ use these alerts to give us info on what our code is doing, but this would get annoying if we had to add a bunch of them.  So, instead, we are going to "log" info out to the "console."  When we use the `console.log` function in our server-side code, we'll see the output in our mac's Terminal application, right where we type `npm run devstart`.  Things are slightly different for our client-side code.  For that, we'll need to open up the Developer view in our browser by hitting command + option + "i" . . . and then making sure we've selected "console" from the menu rather than "elements" or something else. `Index.html` is the server side code—and note that the command + option + "i" function only works in Chrome (not Safari)!
 3. To get something to show up in the console, you'll use the `console.log` function like this:
     ```javascript
     <script>
@@ -200,16 +200,17 @@ We're going to be running lots of js code on the server side, but we will also b
     ```
     Here we're saying that when a user makes a [get request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) we are going to render a template called `'index'`, and we're going to pass in a javascript object full of data we want the template to render somehow.  In this case we're just sending in a title for the page, but we could be sending in urls of images, user data, giant arrays of information from our database, etc. etc.  To test this out, change the value of `title` to `'Simple Slack App'`, quit the server by entering control+C in the terminal, restarting the server by entering `npm start`, and then reloading [localhost:3000](http://localhost:3000).
 2. It is a pain to have to restart the server every time you change the server-side code, so we're going to run our app with a utility called `nodemon` that automatically restarts the server every time we change something.  To do this:
-    1. enter `npm install -S nodemon` to install it and add it to your dependencies
-    2. open up your `package.json` file and add a new script called `devstart` in the scripts section with the value `nodemon ./bin/www`.  When your done, your scripts section should look like this:
+    1. Click control C (before doing anything with npm in terminal!)
+		2. enter `npm install -S nodemon` to install it and add it to your dependencies
+    3. open up your `package.json` file and add a new script called `devstart` in the scripts section with the value `nodemon ./bin/www`.  When your done, your scripts section should look like this:
         ```
         "scripts": {
           "start": "node ./bin/www",
           "devstart": "nodemon ./bin/www"
         },
         ```
-    3. now when you want to start the app, instead of typing `npm start` we'll type `npm run devstart`. Do this and you should be able to open up [localhost:3000](http://localhost:3000) again. Try changing something in your index route to see if the change is working.
-3. Now, over in `views/index.ejs` you can see where the `title` value is being sent.  In line 4, we find `<title><%= title %></title>`, in line 8 we find `<h1><%= title %></h1>`, and in line 9 we find `<p>Welcome to <%= title %></p>`.  In each of these three cases, the string 'Simple Slack App' is being passed in and rendered, just as if you would have typed `<title>Simple Slack App</title>` into a regular HTML file.  The strange `<%= %>` tags are what we need to use to access the `title`, and instead of having to type `data.title` or some such, as you might expect, we get to just use the properties of the object we pass in (from `index.js`) as variables (in `index.ejs`).  We'll also be able to add plain old js (loops, conditionals, etc.) to the `.ejs` files using `<% %>` instead of `<%= %>`, but let's not worry about that yet. To make sure you're grasping how this works, add another property/key along with another value, perhaps `subtitle: 'My First App'` or something like that. Then, over in the `index.ejs` file, do something with it, like maybe `<h2><%= subtitle %>`.
+    4. now when you want to start the app, instead of typing `npm start` we'll type `npm run devstart`. Do this and you should be able to open up [localhost:3000](http://localhost:3000) again. Try changing something in your index route to see if the change is working.
+3. Now, over in `views/index.ejs` you can see where the `title` value is being sent.  In line 4, we find `<title><%= title %></title>`, in line 8 we find `<h1><%= title %></h1>`, and in line 9 we find `<p>Welcome to <%= title %></p>`.  In each of these three cases, the string 'Simple Slack App' is being passed in and rendered, just as if you would have typed `<title>Simple Slack App</title>` into a regular HTML file.  The strange `<%= %>` tags are what we need to use to access the `title`, and instead of having to type `data.title` or some such, as you might expect, we get to just use the properties of the object we pass in (from `index.js`) as variables (in `index.ejs`).  We'll also be able to add plain old js (loops, conditionals, etc.) to the `.ejs` files using `<% %>` instead of `<%= %>`, but let's not worry about that yet. To make sure you're grasping how this works, add another property/key along with another value, perhaps `subtitle: 'My First App'` or something like that. Then, over in the `index.ejs` file, do something with it, like maybe `<h2><%= subtitle %>`. Write the subtitle code just like the title is coded, under `<body>`.
 4. So let's now create a new route in the `index.js` file. Copy and paste in the following code:
     ```
     router.get('/slack-history', function(req, res, next){
@@ -232,7 +233,7 @@ We're going to be running lots of js code on the server side, but we will also b
             <%= message %>
         </p>
         ```
-6. To really take things to the next level, let's pass in a larger array of data and then handle that over in the ejs.  Add in the following array (or a similar array) as a variable in your `router.get(/slack-history, . . . )` route:
+6. To really take things to the next level, let's pass in a larger array of data and then handle that over in the ejs.  Add in the following array (or a similar array) as a variable in your `router.get(/slack-history, . . . )` route before `res.render` in index.js:
     ```
     var sampleData = [
        {
@@ -256,6 +257,7 @@ We're going to be running lots of js code on the server side, but we will also b
     ```
     {title: "Slack History", message: message, data: sampleData}
     ```
+		Open the website localhost:3000/slack-history to see the code in action!
 7. To take advantage of all the data you send to the ejs template, you'll need to handle it over there with a loop.  It will be similar in every respect to a basic js loop, but we'll need to use those `<%  %>` tags to set it off from the HTML.  Try adding in the following if you copied and pasted the array above, or edit this code appropriately if you brought in different data.
     ```
     <ol>
@@ -306,20 +308,20 @@ Heroku already has [an amazing tutorial for developers wanting to deploy node.js
   9. run `heroku`
   10. run `heroku login`
   11. run `heroku create`
-  12. run `git push heroku master` (heroku is an alternative remote repository)
+  12. run `git push heroku master` (Heroku is an alternative remote repository)
 7. Now if you enter `heroku open` you should see your default browser open up your Heroku site.  Make a note of the URL--or, even better, slack it out to the team to celebrate!  You'll need that URL, because you'll be pointing your Slack commands at it in a bit.
 
 
 ## Starting a Slack App
 
-1. create a new slack team for yourself
+1. create a new slack team/workplace for yourself
 2. maybe create a couple of different users so that you can test out privacy-related settings, etc.
 3. head to [api.slack.com/apps](https://api.slack.com/apps), where you should be able to see a big "create Slack App" button. Click it and call your app whatever you like.  We'll call ours `simple-slack`. ![slack-app-name-screenshot](https://raw.githubusercontent.com/learninglab-dev/simple_slack/master/public/images/name-slack-app.png).
 4. next up, we're going to do a bunch of stuff in the "add features and functionality" section. Start by clicking "Incoming Webooks".  Toggle the on/off switch to "on".
 5. Towards the bottom of the page, you'll find an "Add New Webhook to Workspace" button. You'll then be prompted to approve this webhook for posting to a specific channel, and once you do this, you'll be able to copy the slack webhook URL.  
 6. To test if it's working, you can copy and paste the "Sample curl request" that gets generated for you and paste it into your Terminal.  This command should send a message to your chosen Slack channel.
-7. This webhook URL, and all the other secret keys and tokens you get from Slack, Mongo, etc, should be kept secret, and this means keeping them off of github.  So don't just add these to app.js.  Instead, create a file named `.env` in the root folder and save your tokens and keys there.  In this case, it should have the following format: `SLACK_WEBHOOK=https://hooks.slack.com/services/ABCDE1234/XXXXXXXXXetc`.
-8. If you click "Basic Information" at the top of the lefthand sidebar, you'll find three other secret strings you'll want to save securely.  You can call them `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`, and `SLACK_VERIFICATION_TOKEN` as you add them to your `.env` file.
+7. This webhook URL, and all the other secret keys and tokens you get from Slack, Mongo, etc, should be kept secret, and this means keeping them off of github.  So don't just add these to app.js.  Instead, create a file named `.env` in the root folder (the folder you created and have been using within `cd Development`) and save your tokens and keys there.  In this case, it should have the following format: `SLACK_WEBHOOK=https://hooks.slack.com/services/ABCDE1234/XXXXXXXXXetc`.
+8. If you click "Basic Information" at the top of the lefthand sidebar in slack API, you'll find three other secret strings (in App Credentials) you'll want to save securely.  You can call them `SLACK_CLIENT_ID`, `SLACK_CLIENT_SECRET`, and `SLACK_VERIFICATION_TOKEN` as you add them to your `.env` file.
 9. If you're wondering how to access these variables from within your app, all you have to do is
     1. Install `dotenv` by typing `npm i -S dotenv` into the Terminal (while in your app's root folder of course)
     2. Add the following line near the top of your `app.js` file:  `require('dotenv').config();`
@@ -338,7 +340,7 @@ Heroku already has [an amazing tutorial for developers wanting to deploy node.js
 
 1. Once you click on "Slash Commands" in the left-hand sidebar, you'll see a "Create New Command" button, which you should click.
 2. Now you need to make some choices.
-    1. You'll need to give your command a name, well just use `/simple` for now
+    1. You'll need to give your command a name, we'll just use `/simple` for now
     2. for the request URL, you'll need to paste in your Heroku URL and then add on a route.  We'll use `/simple-slash`.  Once you do this you may be prompted to reinstall your app, and you can go ahead and do this.
 3. Once Slack is pointed at your `/simple-slash` endpoint, you need to create a route (and make sure that it's running on Heroku, not just on your `localhost:3000`, because Slack can't see `localhost:3000`).  So go ahead and add a `POST` route to your `routes/index.js` file:
     ```
@@ -348,7 +350,7 @@ Heroku already has [an amazing tutorial for developers wanting to deploy node.js
       res.send('just received a message. will do more soon')
     })
     ```
-    After this, you should be able to do the `git add .`, `git commit -m "message"`, `git push heroku master` dance to get things running on the Heroku server, and after that your slash command should be live.  Type `/simple test` into Slack and you should see some sort of result, both on the client side (in Slack), and on the server side, where you are logging out stringified JSON of the `req.body`.  Don't forget that you need to be checking your Heroku logs with `heroku logs --tail` rather than checking the terminal you typed `npm run devstart` in.
+    After this, you should be able to do the `git add .`, `git commit -m "message"`, `git push origin master`, `git push heroku master` dance to get things running on the Heroku server, and after that your slash command should be live.  Type `/simple test` into Slack and you should see some sort of result, both on the client side (in Slack), and on the server side, where you are logging out stringified JSON of the `req.body`.  Don't forget that you need to be checking your Heroku logs with `heroku logs --tail` rather than checking the terminal you typed `npm run devstart` in.
 4. The next thing to do is to poke around in the req.body to get a sense of what's there. You'll note that the slash command itself is `req.body.command`, the user is there as both a `req.body.user_name` and a `req.body.user_id`, and that the text is `req.body.text`.  These are the key values we'll use to develop our response.  For starters, why not personalize the response by trying to say something to `req.body.user_name` in particular?
 5. You can send back more than simple text, however, and to do so you'll want to construct a JSON 'payload' object and add it to your route index.js. In your router.post function, define a new variable called `the Payload` that looks something like this:
     ```
