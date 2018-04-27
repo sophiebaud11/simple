@@ -296,19 +296,19 @@ Heroku already has [an amazing tutorial for developers wanting to deploy node.js
 6. We are assuming that you are all set up with git, and used to the `git add .` + `git commit -m "message"` + `git push origin master` process you've probably repeated a bunch by now.  We're now going to add an additional command to this refrain: `git push heroku master`, which will push the repository up to Heroku.
   -Git summary (?): git is used for version control and is relevant both to personal and collaborative projects. It's a three part model, made up of 'working',
   'staging' and 'repository': 'working' is where the files we're actively modifying live, 'staging' is for rough drafts that live inside .git and might be ready for submission, 'repository' is a history of the versions of a project (there are local and remote repositories, and remote repositories are where github comes in; ex. of the difference: share a file to a remote repository with collaborators and they can clone the file to their local repository)
-  -Getting set up with git (when starting fresh with a new branch):
-  1. type `git` into Terminal
-  2. run `ls`, find the folder your project is in
-  3. run `cd [FOLDER]` with the folder found in step 2 (mine was `cd Development`)
-  4. run `cd [SIMPLE REPOSITORY]`, with SIMPLE REPOSITORY being the name of the file you started in github and you're working in everywhere else (mine was `cd simple`)
-  5. run `git add .` (the . is a shortcut that represents the current working directory)
-  6. check `git status` to make sure everything is loaded in the right places
-  7. run `git push origin master`
-  8. when in doubt run `git status` again to check that everything is properly saved! (If a file is green in atom, that means it is not in the remote repository)
-  9. run `heroku`
-  10. run `heroku login`
-  11. run `heroku create`
-  12. run `git push heroku master` (Heroku is an alternative remote repository)
+  ### Getting set up with git (when starting fresh with a new branch):
+  	1. type `git` into Terminal
+  	2. run `ls`, find the folder your project is in
+  	3. run `cd [FOLDER]` with the folder found in step 2 (mine was `cd Development`)
+  	4. run `cd [SIMPLE REPOSITORY]`, with SIMPLE REPOSITORY being the name of the file you started in github and you're working in everywhere else (mine was `cd simple`)
+  	5. run `git add .` (the . is a shortcut that represents the current working directory)
+  	6. check `git status` to make sure everything is loaded in the right places
+  	7. run `git push origin master`
+	  8. when in doubt run `git status` again to check that everything is properly saved! (If a file is green in atom, that means it is not in the remote repository)
+  	9. run `heroku`
+  	10. run `heroku login`
+  	11. run `heroku create`
+  	12. run `git push heroku master` (Heroku is an alternative remote repository)
 7. Now if you enter `heroku open` you should see your default browser open up your Heroku site.  Make a note of the URL--or, even better, slack it out to the team to celebrate!  You'll need that URL, because you'll be pointing your Slack commands at it in a bit.
 
 
